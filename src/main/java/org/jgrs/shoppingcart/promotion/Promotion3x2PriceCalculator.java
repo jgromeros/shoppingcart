@@ -8,7 +8,9 @@ import java.math.BigDecimal;
 public class Promotion3x2PriceCalculator implements PriceCalculator {
     @Override
     public BigDecimal calculateDiscount(Cart sale) {
-        if (sale.getItems().size() < 3) {
+        Integer totalQuantity = sale.getItems().values().stream()
+                .reduce(0, Integer::sum);
+        if (totalQuantity < 3) {
             return BigDecimal.ZERO;
         }
         return sale.getItems().keySet().stream()

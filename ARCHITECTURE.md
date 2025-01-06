@@ -6,6 +6,7 @@
 
 # Design decisions
 
+* A map with ProductPrice, quantity is used to save quantities in the cart. It is helpful to put/remove items in the cart. I would likely change the design if the assumption that 3x2 cannot be cumulative. Thus, if the promotion is also 6x4, then a different design might be better.
 * Total price is saved in the database to avoid recalculating it every time a request is made. 
 
 # Assumptions
