@@ -19,8 +19,8 @@ class ObjectMother {
 
     static ProductPrice buildProductPrice(props = null) {
         applyProperties(props, new ProductPrice(
-                product: "Product1",
-                price: BigDecimal.valueOf(20.0)
+                product: "T-shirt",
+                price: BigDecimal.valueOf(35.99)
         ))
     }
 
