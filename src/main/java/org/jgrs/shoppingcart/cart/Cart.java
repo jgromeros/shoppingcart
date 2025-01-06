@@ -1,4 +1,4 @@
-package org.jgrs.shoppingcart.sale;
+package org.jgrs.shoppingcart.cart;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

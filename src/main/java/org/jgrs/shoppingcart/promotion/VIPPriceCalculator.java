@@ -2,10 +2,9 @@ package org.jgrs.shoppingcart.promotion;
 
 import org.jgrs.shoppingcart.customer.Customer;
 import org.jgrs.shoppingcart.customer.CustomerType;
-import org.jgrs.shoppingcart.sale.Cart;
+import org.jgrs.shoppingcart.cart.Cart;
 
 import java.math.BigDecimal;
-import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.Optional;
 

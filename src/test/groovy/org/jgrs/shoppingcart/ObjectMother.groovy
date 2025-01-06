@@ -3,7 +3,7 @@ package org.jgrs.shoppingcart
 import org.jgrs.shoppingcart.customer.Customer
 import org.jgrs.shoppingcart.customer.CustomerType
 import org.jgrs.shoppingcart.product.ProductPrice
-import org.jgrs.shoppingcart.sale.Cart
+import org.jgrs.shoppingcart.cart.Cart
 
 class ObjectMother {
 

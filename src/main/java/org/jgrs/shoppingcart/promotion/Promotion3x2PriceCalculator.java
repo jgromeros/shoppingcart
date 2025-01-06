@@ -1,7 +1,7 @@
 package org.jgrs.shoppingcart.promotion;
 
 import org.jgrs.shoppingcart.product.ProductPrice;
-import org.jgrs.shoppingcart.sale.Cart;
+import org.jgrs.shoppingcart.cart.Cart;
 
 import java.math.BigDecimal;
 
