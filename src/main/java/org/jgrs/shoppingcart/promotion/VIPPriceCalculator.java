@@ -5,6 +5,8 @@ import org.jgrs.shoppingcart.customer.CustomerType;
 import org.jgrs.shoppingcart.sale.Cart;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.Optional;
 
 public class VIPPriceCalculator implements PriceCalculator {
@@ -19,7 +21,7 @@ public class VIPPriceCalculator implements PriceCalculator {
                 .orElse(CustomerType.COMMON))) {
             throw new IllegalArgumentException("COMMON customer can't use this promotion");
         }
-        return calculatePriceBeforeDiscount(sale).multiply(new BigDecimal("0.15"));
+        return calculatePriceBeforeDiscount(sale).multiply(VIP_DISCOUNT).setScale(2, RoundingMode.HALF_UP);
     }
 
 }
