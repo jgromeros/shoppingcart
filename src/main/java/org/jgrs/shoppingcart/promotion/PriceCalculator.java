@@ -16,6 +16,9 @@ public interface PriceCalculator {
     BigDecimal calculateDiscount(Cart sale);
 
     default BigDecimal calculateTotalPrice(Cart sale) {
+        if (sale.getItems() == null || sale.getItems().isEmpty()) {
+            return BigDecimal.ZERO;
+        }
         return calculatePriceBeforeDiscount(sale).subtract(calculateDiscount(sale));
     }
 

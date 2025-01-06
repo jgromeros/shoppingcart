@@ -32,6 +32,7 @@ class Promotion3x2PriceCalculatorTest extends Specification {
         "less than 3"           | 71.98                 | Map.of(buildProductPrice(), 2)
         "single item"           | 80.75                 | Map.of(buildProductPrice(product: "Dress",price: BigDecimal.valueOf(80.75)), 1)
         "empty"                 | 0.00                  | new HashMap<>()
+        "null"                  | 0.00                  | null
     }
 
 }
