@@ -1,10 +1,9 @@
 package org.jgrs.shoppingcart
 
+import org.jgrs.shoppingcart.customer.Customer
+import org.jgrs.shoppingcart.customer.CustomerType
 import org.jgrs.shoppingcart.product.ProductPrice
 import org.jgrs.shoppingcart.sale.Cart
-
-import java.util.stream.Collectors
-import java.util.stream.Stream
 
 class ObjectMother {
 
@@ -21,6 +20,13 @@ class ObjectMother {
         applyProperties(props, new ProductPrice(
                 product: "T-shirt",
                 price: BigDecimal.valueOf(35.99)
+        ))
+    }
+
+    static Customer buildCustomer(props = null) {
+        applyProperties(props, new Customer(
+                id: "John Doe",
+                customerType: CustomerType.VIP
         ))
     }
 
