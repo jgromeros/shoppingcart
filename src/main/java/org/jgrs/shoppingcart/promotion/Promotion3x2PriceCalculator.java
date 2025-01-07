@@ -1,5 +1,6 @@
 package org.jgrs.shoppingcart.promotion;
 
+import org.jgrs.shoppingcart.cart.CartItem;
 import org.jgrs.shoppingcart.product.ProductPrice;
 import org.jgrs.shoppingcart.cart.Cart;
 
@@ -8,13 +9,16 @@ import java.math.BigDecimal;
 public class Promotion3x2PriceCalculator implements PriceCalculator {
     @Override
     public BigDecimal calculateDiscount(Cart sale) {
-        Integer totalQuantity = sale.getItems().values().stream()
+        Integer totalQuantity = sale.getItems()
+                .stream()
+                .map(CartItem::getQuantity)
                 .reduce(0, Integer::sum);
         if (totalQuantity < 3) {
             return BigDecimal.ZERO;
         }
-        return sale.getItems().keySet().stream()
-                .min((pp1, pp2) -> pp1.getPrice().compareTo(pp2.getPrice()))
+        return sale.getItems().stream()
+                .min((ci1, ci2) -> ci1.getProductPrice().getPrice().compareTo(ci2.getProductPrice().getPrice()))
+                .map(CartItem::getProductPrice)
                 .map(ProductPrice::getPrice)
                 .orElse(BigDecimal.ZERO);
     }

@@ -7,9 +7,9 @@ import java.math.BigDecimal;
 public interface PriceCalculator {
 
     default BigDecimal calculatePriceBeforeDiscount(Cart sale) {
-        return sale.getItems().entrySet().stream()
-                .map(entry ->
-                        entry.getKey().getPrice().multiply(BigDecimal.valueOf(entry.getValue())))
+        return sale.getItems().stream()
+                .map(cartItem ->
+                        cartItem.getProductPrice().getPrice().multiply(BigDecimal.valueOf(cartItem.getQuantity())))
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 

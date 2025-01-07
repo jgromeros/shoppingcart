@@ -1,5 +1,6 @@
 package org.jgrs.shoppingcart
 
+import org.jgrs.shoppingcart.cart.CartItem
 import org.jgrs.shoppingcart.customer.Customer
 import org.jgrs.shoppingcart.customer.CustomerType
 import org.jgrs.shoppingcart.product.ProductPrice
@@ -9,10 +10,14 @@ class ObjectMother {
 
     static Cart buildCart(props = null) {
         applyProperties(props, new Cart(
-            items: Map.of(buildProductPrice(), 2,
-                    buildProductPrice(
-                        product: "Product2",
-                        price: BigDecimal.valueOf(19.0)), 1)
+            items: Arrays.asList(buildCartItem())
+        ))
+    }
+
+    static CartItem buildCartItem(props = null) {
+        applyProperties(props, new CartItem(
+                productPrice: buildProductPrice(),
+                quantity: 2
         ))
     }
 
