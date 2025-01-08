@@ -30,7 +30,7 @@ class ObjectMother {
 
     static Customer buildCustomer(props = null) {
         applyProperties(props, new Customer(
-                id: "John Doe",
+                id: 123,
                 customerType: CustomerType.VIP
         ))
     }
