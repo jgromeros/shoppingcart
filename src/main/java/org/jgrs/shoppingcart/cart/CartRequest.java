@@ -9,6 +9,7 @@ import java.util.List;
 @Data
 public class CartRequest {
 
+    private Integer cartId;
     private List<CartItem> items = new ArrayList<>();
     private Customer customer;
 

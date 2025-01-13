@@ -1,5 +1,6 @@
 package org.jgrs.shoppingcart.cart;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,7 +31,8 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cart_id")
     private Integer id;
-    @OneToMany(mappedBy = "cart")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="cart")
     @Builder.Default
     private List<CartItem> items = new ArrayList<>();
     @OneToOne

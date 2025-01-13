@@ -15,4 +15,5 @@
 * The application does not have any authentication or authorization mechanisms.
 * The Scenario 2 from the exercise is wrong. The total price before discounts is 202.98. The free item costs 35.99. The expected total should be 166.99
 * The Scenario 4 from the exercise is wrong. The total price before discounts is 292.50. The free item costs 65.50. The expected total should be 227.00
+* The delete endpoint is to remove one item from the quantity (cannot remove the product from the cart). If the quantity is 1, the product is removed from the cart.
 * 

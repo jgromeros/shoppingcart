@@ -3,9 +3,11 @@ package org.jgrs.shoppingcart.promotion;
 import org.jgrs.shoppingcart.cart.CartItem;
 import org.jgrs.shoppingcart.product.ProductPrice;
 import org.jgrs.shoppingcart.cart.Cart;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
+@Component
 public class Promotion3x2PriceCalculator implements PriceCalculator {
     @Override
     public BigDecimal calculateDiscount(Cart sale) {
