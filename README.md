@@ -10,15 +10,15 @@
 ## Running the application
 
 1. Clone the repository
-2. Build the code with `gradle build`
-3. Build docker images with `docker-compose build`
+2. In directory /shoppingcart, build the code with `gradle build`
+3. In the root / build docker images with `docker-compose build`
 4. Run the application with `docker-compose up`
 5. The application will be available at `http://localhost:8080`
-6. The database will be available at `http://localhost:5432`
+6. The database will be available at `localhost:5432`
 7. The database should be created at init and can be accessed with the following credentials:
    * User: `usc
    * Password: `psc
-8. A postman collection have been added to the repository to test the APIs
+8. A postman collection have been added to the repository to ease the test of the APIs
 
 # Architecture
 
@@ -33,6 +33,7 @@
 * Only artificial identifiers are used in the exercise. In a complete implementation natural identifiers would be added.
 * Besides add and remove APIs an additional one was created to create the cart. This is to avoid creating a cart when adding a product to it.
 * The customer needs to be created prior to the cart to be able to know if is a VIP or COMMON.
+* Spring data rest is used because of the CRUD APIs that can be used to facilitate create data to test.
 
 # APIs
 
