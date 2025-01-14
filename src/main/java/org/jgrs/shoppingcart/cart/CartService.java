@@ -1,6 +1,7 @@
 package org.jgrs.shoppingcart.cart;
 
 import lombok.RequiredArgsConstructor;
+import org.jgrs.shoppingcart.ElementNotFoundException;
 import org.jgrs.shoppingcart.customer.Customer;
 import org.jgrs.shoppingcart.customer.CustomerRepository;
 import org.jgrs.shoppingcart.product.ProductPrice;
@@ -9,12 +10,14 @@ import org.jgrs.shoppingcart.promotion.PriceCalculator;
 import org.jgrs.shoppingcart.promotion.Promotion3x2PriceCalculator;
 import org.jgrs.shoppingcart.promotion.PromotionService;
 import org.jgrs.shoppingcart.promotion.VIPPriceCalculator;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -77,7 +80,11 @@ public class CartService {
         if (cart == null) {
             throw new IllegalArgumentException("Cart not found");
         }
-        cart.getItems().remove(CartItem.builder().id(itemId).build());
+        CartItem cartItem = cart.getItems().stream()
+                .filter(ci -> ci.getId().equals(itemId))
+                .findFirst().orElseThrow(ElementNotFoundException::new);
+        cartItem.setQuantity(cartItem.getQuantity() - 1);
+        cart.getItems().removeIf(ci -> ci.getQuantity() == 0);
         updateTotals(cart);
         cart = cartRepository.save(cart);
         return cart;
