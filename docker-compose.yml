@@ -1,0 +1,26 @@
+services:
+  shoppingcart:
+    container_name: shoppingcart
+    build:
+      context: shoppingcart
+    ports:
+      - 8080:8080
+      - 8083:8083
+    networks:
+      - sc-network
+
+  db:
+    build:
+      context: db
+    environment:
+      - POSTGRES_DB=shoppingcart
+      - POSTGRES_USER=usc
+      - POSTGRES_PASSWORD=psc
+    ports:
+      - "5432:5432"
+    networks:
+      - sc-network
+
+networks:
+  sc-network:
+    driver: bridge
