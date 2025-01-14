@@ -18,6 +18,7 @@
 7. The database should be created at init and can be accessed with the following credentials:
    * User: `usc
    * Password: `psc
+8. A postman collection have been added to the repository to test the APIs
 
 # Architecture
 
