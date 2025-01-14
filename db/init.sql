@@ -1,6 +1,6 @@
---CREATE USER usc WITH PASSWORD 'psc';
+CREATE USER usc WITH PASSWORD 'psc';
 
---CREATE DATABASE shoppingcart;
+CREATE DATABASE shoppingcart;
 GRANT ALL PRIVILEGES ON DATABASE shoppingcart TO usc;
 
 CREATE TABLE customer(

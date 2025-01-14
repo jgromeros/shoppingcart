@@ -69,12 +69,6 @@ public class CartService {
         return cart;
     }
 
-    private void updateTotals(Cart cart) {
-        cart.setTotalBeforeDiscount(promotionService.calculatePriceBeforeDiscount(cart));
-        cart.setDiscount(promotionService.calculateDiscount(cart));
-        cart.setTotal(promotionService.calculateTotalPrice(cart));
-    }
-
     public Cart removeFromCart(Integer cartId, Integer itemId) {
         Cart cart = cartRepository.findById(cartId).orElse(null);
         if (cart == null) {
@@ -88,6 +82,12 @@ public class CartService {
         updateTotals(cart);
         cart = cartRepository.save(cart);
         return cart;
+    }
+
+    private void updateTotals(Cart cart) {
+        cart.setTotalBeforeDiscount(promotionService.calculatePriceBeforeDiscount(cart));
+        cart.setDiscount(promotionService.calculateDiscount(cart));
+        cart.setTotal(promotionService.calculateTotalPrice(cart));
     }
 
 }
