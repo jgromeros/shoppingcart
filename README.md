@@ -9,16 +9,15 @@
 
 ## Running the application
 
-1. Clone the repository
-2. In directory /shoppingcart, build the code with `gradle build`
-3. In the root / build docker images with `docker-compose build`
-4. Run the application with `docker-compose up`
-5. The application will be available at `http://localhost:8080`
-6. The database will be available at `localhost:5432`
-7. The database should be created at init and can be accessed with the following credentials:
+1. In directory /shoppingcart, build the code with `gradle build`
+2. In the root / build docker images with `docker-compose build`
+3. Run the application with `docker-compose up`
+4. The application will be available at `http://localhost:8080`
+5. The database will be available at `localhost:5432`
+6. The database should be created at init and can be accessed with the following credentials:
    * User: `usc
    * Password: `psc
-8. A postman collection have been added to the repository to ease the test of the APIs
+7. A postman collection have been added to the repository to ease the test of the APIs
 
 # Architecture
 
